@@ -1,0 +1,22 @@
+From 37d696d3c39dad7283514bb19b236537d7ebdf64 Mon Sep 17 00:00:00 2001
+From: "Nathan Nguyen (Server)" <nathan@neoserver.lan>
+Date: Sun, 11 Oct 2020 19:29:23 -0500
+Subject: [PATCH] Disable bad packet from mods
+
+
+diff --git a/protocol/src/main/java/net/md_5/bungee/protocol/MinecraftDecoder.java b/protocol/src/main/java/net/md_5/bungee/protocol/MinecraftDecoder.java
+index ec932e92..1b873d11 100644
+--- a/protocol/src/main/java/net/md_5/bungee/protocol/MinecraftDecoder.java
++++ b/protocol/src/main/java/net/md_5/bungee/protocol/MinecraftDecoder.java
+@@ -61,7 +61,7 @@ public class MinecraftDecoder extends MessageToMessageDecoder<ByteBuf>
+ 
+                 if ( in.isReadable() )
+                 {
+-                    throw new BadPacketException( "Did not read all bytes from packet " + packet.getClass() + " " + packetId + " Protocol " + protocol + " Direction " + prot.getDirection() );
++                    // throw new BadPacketException( "Did not read all bytes from packet " + packet.getClass() + " " + packetId + " Protocol " + protocol + " Direction " + prot.getDirection() );
+                 }
+             } else
+             {
+-- 
+2.28.0
+
